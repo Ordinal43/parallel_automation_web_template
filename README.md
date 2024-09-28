@@ -1,5 +1,9 @@
 # Parallel Web Automation Template Using Cucumber, Selenium, and JUnit.
 
+
+https://github.com/user-attachments/assets/612204fb-6c05-43ff-b64f-c0005cef79c1
+
+
 This project is a Java test automation framework made using **Selenium**, **Cucumber**, and **JUnit**. It uses the Page
 Object Model (POM) design pattern for better test maintainability and readability.
 
