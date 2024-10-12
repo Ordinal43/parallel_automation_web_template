@@ -13,7 +13,8 @@ public class Helpers {
         if (dotenv == null) {
             dotenv = Dotenv.configure().ignoreIfMissing().load();
         }
-        return dotenv.get(key);
+        String value = dotenv.get(key);
+        return value == null ? "" : value;
     }
 
     public static String TEST_DATA(String key) {
@@ -23,6 +24,7 @@ public class Helpers {
                     .load();
         }
         System.out.println(key + " : " + testData.get(key));
-        return testData.get(key);
+        String value = testData.get(key);
+        return value == null ? "" : value;
     }
 }
