@@ -1,8 +1,6 @@
 # Parallel Web Automation Template Using Cucumber, Selenium, and JUnit.
 
-
 https://github.com/user-attachments/assets/612204fb-6c05-43ff-b64f-c0005cef79c1
-
 
 This project is a Java test automation framework made using **Selenium**, **Cucumber**, and **JUnit**. It uses the Page
 Object Model (POM) design pattern for better test maintainability and readability.
@@ -30,14 +28,16 @@ located at **.env** file that you must create.
 
 Before setting up the project, ensure you have the following installed:
 
+- [Java JDK 17 or higher](https://www.graalvm.org/release-notes/JDK_17/)
+    - Set up `JAVA_HOME` environment variable to point to the JDK home directory
+- [Selenium Server (Grid)](https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.25.0/selenium-server-4.25.0.jar)
+
 ### If using Docker:
 
 - [Docker Engine](https://docs.docker.com/engine/install/)
 
 ### If not using Docker:
 
-- [Java JDK 17 or higher](https://www.graalvm.org/release-notes/JDK_17/)
-    - Set up `JAVA_HOME` environment variable to point to the JDK home directory
 - [Allure Reporter](https://allurereport.org/docs/install/)
 - Bash shell
 
@@ -91,10 +91,21 @@ Parallel Automation
     cd your-repo-name
     ```
 2. **Wait for gradle to install its dependencies.**
-3. **Environment and Test Data variables setup.**
+3. **Selenium Server setup (Optional)**
+    - Run this command to start Selenium server in standalone mode.
+      ```bash
+       java -jar <PATH_TO_SELENIUM_JAR>/selenium-server.jar standalone
+      ```
+4. **Environment and Test Data variables setup.**
     - There are 2 files named `.env.example` and `.test_data.example` (located in `src/test/resources/`)
     - Base both of your `.env` and `.test_data` files from here.
-4. If you're using Docker, follow the Docker setup steps after this.
+    - Setting values:
+      ```bash
+      USE_GRID= #Set to "true" if you want to use Selenium Grid
+      SELENIUM_GRID_URL= #(OPTIONAL) Set the Selenium Grid URL if USE_GRID=true
+      MAIN_URL= #URL of the website you want to test
+      ```
+5. If you're using Docker, follow the Docker setup steps after this.
 
 ### Docker setup (if you're running using Docker)
 
@@ -106,7 +117,7 @@ Parallel Automation
     ```
 4. After the image is built, run:
     ```bash
-    docker run -v $(pwd):/app -it --rm -p 4723:4723 <name_of_your_image>
+    docker run -v $(pwd):/app -it --rm <name_of_your_image>
     ```
    This will mount our working directory as a volume inside our Docker container with all proper dependencies installed.
 
