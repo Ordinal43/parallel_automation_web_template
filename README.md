@@ -94,6 +94,7 @@ Parallel Automation
 3. **Environment and Test Data variables setup.**
     - There are 2 files named `.env.example` and `.test_data.example` (located in `src/test/resources/`)
     - Base both of your `.env` and `.test_data` files from here.
+4. If you're using Docker, follow the Docker setup steps after this.
 
 ### Docker setup (if you're running using Docker)
 
